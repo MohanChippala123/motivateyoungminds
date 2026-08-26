@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — MotivateYoungMinds</title>
+  <meta name="description" content="Questions about joining, mentoring, donating, or partnering? Reach out — we usually reply within about two days.">
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+        </span>
+        <span>Motivate<small>Young Minds</small></span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="get-involved.html">Get Involved</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+          <li class="nav-cta"><a href="get-involved.html#donate" class="btn btn-outline-light" style="padding:.42rem .9rem;font-size:.84rem;">Donate</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container page-hero-inner">
+      <span class="label">Contact</span>
+      <h1>Say hi. Ask anything.</h1>
+      <p>Teens ready to start, parents with questions, future mentors, skeptical teachers — all welcome. A human reads every message and replies in about two days.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container contact-layout">
+      <div>
+        <div class="info-item">
+          <h3>Email</h3>
+          <p><a href="mailto:hello@motivateyoungminds.org" style="color:var(--gold-deep); border-bottom:1px solid var(--gold); text-decoration:none;">hello@motivateyoungminds.org</a><br>Best for anything detailed or sensitive.</p>
+        </div>
+        <div class="info-item">
+          <h3>Socials</h3>
+          <p>Daily encouragement and starter stories:</p>
+          <ul class="social-text">
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">TikTok</a></li>
+            <li><a href="#">Discord</a></li>
+            <li><a href="#">YouTube</a></li>
+          </ul>
+        </div>
+        <div class="info-item">
+          <h3>Under 18?</h3>
+          <p>We ask for parent/guardian consent before matching you with a coach. Safety first — it's the boring rule we'd never cut.</p>
+        </div>
+        <div class="info-item">
+          <h3>Response time</h3>
+          <p>Usually within 48 hours. Slower during finals season, for obvious reasons.</p>
+        </div>
+      </div>
+
+      <form class="js-form form-card form-grid" novalidate>
+        <div class="field">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" placeholder="First name is fine" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required>
+        </div>
+        <div class="form-cols cols-2">
+          <div class="field">
+            <label for="role">I am a…</label>
+            <select id="role" name="role" required>
+              <option value="">Choose one</option>
+              <option value="teen">Teen / young adult with an idea</option>
+              <option value="parent">Parent or guardian</option>
+              <option value="educator">Teacher / youth leader</option>
+              <option value="mentor">Wanting to volunteer as a mentor</option>
+              <option value="donor">Donor / sponsor</option>
+              <option value="other">Something else</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="age">Age <span class="optional">(optional)</span></label>
+            <input id="age" name="age" type="number" min="10" max="120" placeholder="e.g. 16">
+          </div>
+        </div>
+        <div class="field">
+          <label for="message">What's on your mind?</label>
+          <textarea id="message" name="message" placeholder="Tell us about your idea, your question, or how you'd like to help…" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg">Send message
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+        <p class="form-success"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; margin-right:6px;"><path class="ck" d="M4 12.5l5 5L20 7"/></svg>Got it — we'll reply within a couple of days.</p>
+        <p class="form-note">Heads up: this form doesn't send data anywhere yet. Hook it up to Formspree, Netlify Forms, or your own backend when you deploy for real.</p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+          </span>
+          <span>Motivate<small>Young Minds</small></span>
+        </a>
+        <p>Motivation, accountability, and community for young starters. We provide the push — you do the building.</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="get-involved.html">Get Involved</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="mailto:hello@motivateyoungminds.org">hello@motivateyoungminds.org</a></li>
+      </ul>
+      <div class="footer-meta">
+        <span>© <span id="year">2026</span> MotivateYoungMinds · 501(c)(3) · est. 2023</span>
+        <span>Instagram / TikTok / Discord / YouTube</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
