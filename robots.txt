@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://motivateyoungminds.vercel.app/sitemap.xml
