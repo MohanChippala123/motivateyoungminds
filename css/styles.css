@@ -1906,6 +1906,7 @@ section[id] { scroll-margin-top: 5.5rem; }
 .compass-site .trail p { color:var(--compass-muted); line-height:1.6; }
 .compass-site .trail .tl-node { width:3rem; height:3rem; border-radius:50%; box-shadow:0 0 0 7px var(--compass-paper); }
 .compass-site .band-ink .trio > div { min-height:190px; padding:1.6rem; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.16); border-top:3px solid var(--compass-sun); border-radius:12px; }
+.compass-site .band-ink > .container > h2 { margin-bottom:2.5rem; }
 
 /* Resource list */
 .compass-site .post-list { max-width:980px; }
@@ -1941,6 +1942,7 @@ section[id] { scroll-margin-top: 5.5rem; }
   .compass-site .post-row { grid-template-columns:1fr; gap:.45rem; }
   .compass-site .doors .door { min-height:0; }
   .compass-site .form-card { padding:1.35rem; }
+  .compass-site .band-ink > .container > h2 { margin-bottom:2rem; }
 }
 
 /* Compass motion system: visible, responsive, and always optional. */
