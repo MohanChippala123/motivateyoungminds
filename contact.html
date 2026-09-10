@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact — MotivateYoungMinds</title>
+  <title>Contact — Compass Teens</title>
   <meta name="description" content="Questions about joining, mentoring, donating, or partnering? Reach out — we usually reply within about two days.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://motivateyoungminds.vercel.app/contact.html">
-  <meta property="og:title" content="Contact — MotivateYoungMinds">
+  <meta property="og:url" content="https://compass-teens.vercel.app/contact.html">
+  <meta property="og:title" content="Contact — Compass Teens">
   <meta property="og:description" content="Questions about joining, mentoring, donating, or partnering? Reach out — a human replies within about two days.">
-  <meta property="og:image" content="https://motivateyoungminds.vercel.app/og.png">
+  <meta property="og:image" content="https://compass-teens.vercel.app/og.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="compass-site">
 
   <header class="site-header">
     <div class="container header-inner">
@@ -25,7 +25,7 @@
         <span class="logo-mark">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
         </span>
-        <span>Motivate<small>Young Minds</small></span>
+        <span>Compass <small>TEENS</small></span>
       </a>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -33,12 +33,12 @@
       <nav class="site-nav">
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="about.html">Why Compass</a></li>
           <li><a href="how-it-works.html">How It Works</a></li>
           <li><a href="resources.html">Resources</a></li>
           <li><a href="get-involved.html">Get Involved</a></li>
           <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
-          <li class="nav-cta"><a href="get-involved.html#donate" class="btn btn-outline-light" style="padding:.42rem .9rem;font-size:.84rem;">Donate</a></li>
+          <li class="nav-cta"><a href="contact.html?type=educator" class="btn btn-outline-light" style="padding:.42rem .9rem;font-size:.84rem;">Support the pilot</a></li>
         </ul>
       </nav>
     </div>
@@ -61,7 +61,7 @@
         </div>
         <div class="info-item">
           <h3>Socials</h3>
-          <p>Daily encouragement and starter stories:</p>
+          <p>Updates on workshops, mentor training, and student resources:</p>
           <ul class="social-text">
             <li><a href="#">Instagram</a></li>
             <li><a href="#">TikTok</a></li>
@@ -71,7 +71,7 @@
         </div>
         <div class="info-item">
           <h3>Under 18?</h3>
-          <p>We ask for parent/guardian consent before matching you with a coach. Safety first — it's the boring rule we'd never cut.</p>
+          <p>We ask for parent/guardian consent before matching a mentee with a peer mentor. Safety is part of the design.</p>
         </div>
         <div class="info-item">
           <h3>Response time</h3>
@@ -93,11 +93,11 @@
             <label for="role">I am a…</label>
             <select id="role" name="role" required>
               <option value="">Choose one</option>
-              <option value="teen">Teen / young adult with an idea</option>
+              <option value="teen">Mentee (ages 11–15)</option>
+              <option value="mentor">Potential mentor (ages 15–18)</option>
               <option value="parent">Parent or guardian</option>
-              <option value="educator">Teacher / youth leader</option>
-              <option value="mentor">Wanting to volunteer as a mentor</option>
-              <option value="donor">Donor / sponsor</option>
+              <option value="educator">Teacher / adult advisor</option>
+              <option value="donor">Community partner</option>
               <option value="other">Something else</option>
             </select>
           </div>
@@ -108,7 +108,7 @@
         </div>
         <div class="field">
           <label for="message">What's on your mind?</label>
-          <textarea id="message" name="message" placeholder="Tell us about your idea, your question, or how you'd like to help…" required></textarea>
+          <textarea id="message" name="message" placeholder="Tell us what you need, what you're navigating, or how you'd like to help…" required></textarea>
         </div>
         <button type="submit" class="btn btn-primary btn-lg">Send message
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -125,9 +125,9 @@
           <span class="logo-mark">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
           </span>
-          <span>Motivate<small>Young Minds</small></span>
+          <span>Compass <small>TEENS</small></span>
         </a>
-        <p>Motivation, accountability, and community for young starters. We provide the push — you do the building.</p>
+        <p>A teen-led nonprofit helping students build resilience, confidence, and practical direction.</p>
       </div>
       <ul class="footer-links">
         <li><a href="index.html">Home</a></li>
@@ -141,8 +141,8 @@
         <li><a href="mailto:mohan0512vittal@gmail.com">mohan0512vittal@gmail.com</a></li>
       </ul>
       <div class="footer-meta">
-        <span>© <span id="year">2026</span> MotivateYoungMinds — free for starters, always</span>
-        <span>Instagram / TikTok / Discord / YouTube</span>
+        <span>© <span id="year">2026</span> Compass Teens</span>
+        <span>Teen-led · adult-supported · built with care</span>
       </div>
     </div>
   </footer>

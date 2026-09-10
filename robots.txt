@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://motivateyoungminds.vercel.app/sitemap.xml
+Sitemap: https://compass-teens.vercel.app/sitemap.xml

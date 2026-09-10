@@ -140,73 +140,15 @@
   }
 
   function initSmoothScroll() {
-    if (!FINE) return;
-    const root = document.documentElement;
-    root.style.scrollBehavior = "auto";
-    let cur = window.scrollY;
-    let tgt = cur;
-    let raf = null;
-    let lastWheel = 0;
-    function maxScroll() {
-      return root.scrollHeight - window.innerHeight;
-    }
-    function loop() {
-      tgt = Math.max(0, Math.min(maxScroll(), tgt));
-      cur += (tgt - cur) * 0.105;
-      if (Math.abs(tgt - cur) < 0.5) cur = tgt;
-      window.scrollTo(0, cur);
-      if (cur !== tgt || performance.now() - lastWheel < 150) {
-        raf = requestAnimationFrame(loop);
-      } else {
-        raf = null;
-      }
-    }
-    function wake() {
-      if (!raf) raf = requestAnimationFrame(loop);
-    }
-    window.addEventListener(
-      "wheel",
-      function (e) {
-        if (e.ctrlKey) return;
-        e.preventDefault();
-        let d = e.deltaY;
-        if (e.deltaMode === 1) d *= 33;
-        if (performance.now() - lastWheel > 300) {
-          cur = window.scrollY;
-          tgt = window.scrollY;
-        }
-        lastWheel = performance.now();
-        tgt += d;
-        wake();
-      },
-      { passive: false }
-    );
-    window.addEventListener(
-      "scroll",
-      function () {
-        if (raf === null && Math.abs(window.scrollY - cur) > 2) {
-          cur = window.scrollY;
-          tgt = window.scrollY;
-        }
-      },
-      { passive: true }
-    );
-    document.addEventListener(
-      "click",
-      function (e) {
-        const a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
-        if (!a) return;
-        const id = a.getAttribute("href").slice(1);
-        const el = document.getElementById(id);
-        if (!el) return;
-        e.preventDefault();
-        if (performance.now() - lastWheel > 300) cur = window.scrollY;
-        tgt = el.getBoundingClientRect().top + window.scrollY - 74;
-        lastWheel = performance.now();
-        wake();
-      },
-      false
-    );
+    // Keep native scrolling predictable across mice, trackpads, keyboards, and touch.
+    document.addEventListener("click", function (e) {
+      const a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+      if (!a) return;
+      const el = document.getElementById(a.getAttribute("href").slice(1));
+      if (!el) return;
+      e.preventDefault();
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
   }
 
   function initOdometer() {
@@ -391,6 +333,68 @@
     });
   }
 
+  function initHeaderMotion() {
+    const header = document.querySelector(".site-header");
+    if (!header) return;
+    let queued = false;
+    function update() {
+      queued = false;
+      header.classList.toggle("header-scrolled", window.scrollY > 18);
+    }
+    window.addEventListener("scroll", function () {
+      if (!queued) {
+        queued = true;
+        requestAnimationFrame(update);
+      }
+    }, { passive: true });
+    update();
+  }
+
+  function initCardMotion() {
+    if (!FINE) return;
+    const cards = Array.from(document.querySelectorAll(
+      ".compass-site .program-card, .compass-site .team-card, .compass-site .age-card, .compass-site .door, .compass-site .post-row, .compass-site .trail li > div, .compass-site .trio > div, .compass-site .form-card"
+    ));
+    cards.forEach(function (card) {
+      card.classList.add("motion-card");
+      card.addEventListener("mousemove", function (event) {
+        const rect = card.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - 0.5;
+        const y = (event.clientY - rect.top) / rect.height - 0.5;
+        card.style.setProperty("--tilt-x", (-y * 2.5).toFixed(2) + "deg");
+        card.style.setProperty("--tilt-y", (x * 3).toFixed(2) + "deg");
+        card.style.setProperty("--glow-x", ((x + 0.5) * 100).toFixed(0) + "%");
+        card.style.setProperty("--glow-y", ((y + 0.5) * 100).toFixed(0) + "%");
+      });
+      card.addEventListener("mouseleave", function () {
+        card.style.removeProperty("--tilt-x");
+        card.style.removeProperty("--tilt-y");
+        card.style.removeProperty("--glow-x");
+        card.style.removeProperty("--glow-y");
+      });
+    });
+  }
+
+  function initCompassMotion() {
+    if (!document.body.classList.contains("compass-site")) return;
+    document.body.classList.add("motion-ready");
+    const blocks = Array.from(document.querySelectorAll(".compass-site main > section:not(.compass-hero):not(.page-hero), .compass-site .program-card, .compass-site .team-card, .compass-site .age-card, .compass-site .door, .compass-site .post-row, .compass-site .trail li > div, .compass-site .trio > div, .compass-site .faq details, .compass-site .form-card"));
+    if (!blocks.length || !("IntersectionObserver" in window)) return;
+    blocks.forEach(function (el, i) {
+      el.classList.add("motion-block");
+      el.style.setProperty("--motion-delay", Math.min(i * 35, 180) + "ms");
+    });
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("motion-in");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    blocks.forEach(function (el) { observer.observe(el); });
+  }
+
   playTracker();
   tiltTracker();
   initMagnet();
@@ -402,4 +406,7 @@
   initReveals();
   initTrail();
   initDoors();
+  initHeaderMotion();
+  initCardMotion();
+  initCompassMotion();
 })();
