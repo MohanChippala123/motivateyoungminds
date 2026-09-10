@@ -5,6 +5,16 @@ document.addEventListener("DOMContentLoaded", function () {
   if (toggle && nav) {
     if (!nav.id) nav.id = "site-navigation";
     toggle.setAttribute("aria-controls", nav.id);
+    toggle.setAttribute("aria-expanded", "false");
+
+    function closeNav(restoreFocus) {
+      nav.classList.remove("open");
+      toggle.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "Open menu");
+      if (restoreFocus) toggle.focus();
+    }
+
     toggle.addEventListener("click", function () {
       const isOpen = nav.classList.toggle("open");
       toggle.classList.toggle("open", isOpen);
@@ -14,20 +24,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
     nav.querySelectorAll("a").forEach(function (link) {
       link.addEventListener("click", function () {
-        nav.classList.remove("open");
-        toggle.classList.remove("open");
-        toggle.setAttribute("aria-expanded", "false");
-        toggle.setAttribute("aria-label", "Open menu");
+        closeNav(false);
       });
+    });
+
+    document.addEventListener("click", function (event) {
+      if (nav.classList.contains("open") && !nav.contains(event.target) && !toggle.contains(event.target)) {
+        closeNav(false);
+      }
+    });
+
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 860 && nav.classList.contains("open")) closeNav(false);
     });
 
     document.addEventListener("keydown", function (event) {
       if (event.key === "Escape" && nav.classList.contains("open")) {
-        nav.classList.remove("open");
-        toggle.classList.remove("open");
-        toggle.setAttribute("aria-expanded", "false");
-        toggle.setAttribute("aria-label", "Open menu");
-        toggle.focus();
+        closeNav(true);
       }
     });
   }
@@ -39,10 +52,13 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".js-form").forEach(function (form) {
     form.addEventListener("submit", function (event) {
       event.preventDefault();
+      if (form.dataset.submitting === "true") return;
       if (!form.checkValidity()) {
         form.reportValidity();
         return;
       }
+      form.dataset.submitting = "true";
+      form.setAttribute("aria-busy", "true");
       const success = form.querySelector(".form-success");
       if (success) {
         success.classList.add("show");
@@ -55,8 +71,13 @@ document.addEventListener("DOMContentLoaded", function () {
         button.disabled = true;
         setTimeout(function () {
           button.disabled = false;
+          form.dataset.submitting = "false";
+          form.removeAttribute("aria-busy");
           if (success) success.classList.remove("show");
         }, 6000);
+      } else {
+        form.dataset.submitting = "false";
+        form.removeAttribute("aria-busy");
       }
     });
   });
