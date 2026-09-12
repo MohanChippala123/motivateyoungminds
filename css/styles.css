@@ -1826,7 +1826,6 @@ section[id] { scroll-margin-top: 5.5rem; }
 .compass-site .page-hero + .section { padding-top:clamp(5rem,9vw,8rem); }
 .compass-site .page-hero ~ .section:nth-of-type(odd) { background:#f1f4f8; }
 .compass-site .page-hero ~ .section:nth-of-type(odd) > .container { position:relative; }
-.compass-site .page-hero ~ .section:nth-of-type(odd) > .container::before { content:""; position:absolute; top:0; left:0; width:42px; height:3px; background:var(--compass-blue); }
 .compass-site .page-hero ~ .section.band-ink { background:var(--compass-ink); color:#fff; }
 .compass-site .page-hero ~ .section.band-ink h2,.compass-site .page-hero ~ .section.band-ink h3 { color:#fff; }
 .compass-site .page-hero ~ .section.band-ink p { color:#c5d0e4; }
@@ -1846,7 +1845,7 @@ section[id] { scroll-margin-top: 5.5rem; }
 .compass-site .doors .door { border:1px solid #dfe4ea; }
 .compass-site .doors .door-hot { border-top:4px solid var(--compass-blue); }
 .compass-site .tier { padding:1.25rem 0; }
-@media (max-width:700px){.compass-site .page-hero{min-height:390px}.compass-site .page-hero-inner::after{position:static;display:block;margin-top:2rem}.compass-site .page-hero::before{right:-100px}.compass-site .post-row{margin-inline:0}.compass-site .dd-col{padding:1.3rem}.compass-site .page-hero ~ .section:nth-of-type(odd) > .container::before{display:none}}
+@media (max-width:700px){.compass-site .page-hero{min-height:390px}.compass-site .page-hero-inner::after{position:static;display:block;margin-top:2rem}.compass-site .page-hero::before{right:-100px}.compass-site .post-row{margin-inline:0}.compass-site .dd-col{padding:1.3rem}}
 .compass-site .page-hero ~ .section.safety-section { background:var(--compass-ink) !important; color:#fff; }
 .compass-site .page-hero ~ .section.safety-section h2 { color:#fff; }
 .compass-site .page-hero ~ .section.safety-section p:not(.eyebrow) { color:#c5d0e4; }
@@ -1993,7 +1992,6 @@ section[id] { scroll-margin-top: 5.5rem; }
 /* Authored editorial layer: a little irregularity keeps Compass from feeling like a template. */
 .compass-site .section > .container { position:relative; }
 .compass-site main > .section:not(.band-ink):not(.safety-section) { background-image:linear-gradient(90deg, transparent calc(50% - .5px), rgba(24,38,61,.035) 50%, transparent calc(50% + .5px)); }
-.compass-site .section > .container::before { content:""; position:absolute; left:-2.5rem; top:0; width:1.5rem; height:1px; background:var(--compass-blue); opacity:.7; }
 .compass-site .section-heading h2,
 .compass-site .intro-grid h2,
 .compass-site .age-copy h2,
@@ -2019,7 +2017,6 @@ section[id] { scroll-margin-top: 5.5rem; }
 .compass-site .faq details summary { font-weight:700; }
 .compass-site .faq details summary::marker { color:var(--compass-blue); }
 @media (max-width:900px) {
-  .compass-site .section > .container::before { left:0; top:-1.2rem; width:2rem; }
   .compass-site .program-card:nth-child(2), .compass-site .program-card:nth-child(3), .compass-site .doors .door:nth-child(2) { transform:none; }
   .compass-site .program-card:nth-child(2):hover, .compass-site .program-card:nth-child(3):hover, .compass-site .doors .door:nth-child(2):hover { transform:translateY(-3px); }
 }
