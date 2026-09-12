@@ -14,7 +14,7 @@
   --red-light: #ff9d8a;
   --shadow-soft: 0 18px 42px rgba(13, 23, 40, 0.10);
   --shadow-deep: 0 28px 70px rgba(13, 23, 40, 0.18);
-  --font-display: "Bricolage Grotesque", "Arial Black", sans-serif;
+  --font-display: "Newsreader", Georgia, serif;
   --font-body: "IBM Plex Sans", -apple-system, "Segoe UI", sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 }
@@ -1726,8 +1726,8 @@ section[id] { scroll-margin-top: 5.5rem; }
   color: var(--compass-ink);
   background: var(--compass-paper);
 }
-.compass-site h1,.compass-site h2,.compass-site h3 { font-family:var(--font-display); letter-spacing:-.04em; }
-.compass-site h1 { font-weight:700; }
+.compass-site h1,.compass-site h2,.compass-site h3 { font-family:var(--font-display); letter-spacing:-.025em; }
+.compass-site h1 { font-weight:650; }
 .compass-site .site-header { background: rgba(251,250,247,.9); border-top: 0; border-bottom: 1px solid rgba(24,38,61,.1); backdrop-filter: blur(16px); }
 .compass-site .site-header .logo { color: var(--compass-ink); }
 .compass-site .header-inner { padding: 1.05rem 0; }
