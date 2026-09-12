@@ -1988,3 +1988,34 @@ section[id] { scroll-margin-top: 5.5rem; }
 @keyframes compass-twinkle { 0%,100% { transform:scale(.8) rotate(0deg); opacity:.45; } 50% { transform:scale(1.15) rotate(18deg); opacity:1; } }
 @keyframes compass-sheen { to { transform:translateX(130%); } }
 @keyframes compass-node { 0% { transform:scale(.72); filter:brightness(1.35); } 70% { transform:scale(1.12); } 100% { transform:scale(1); filter:none; } }
+
+/* Authored editorial layer: a little irregularity keeps Compass from feeling like a template. */
+.compass-site .section > .container { position:relative; }
+.compass-site .section > .container::before { content:""; position:absolute; left:-2.5rem; top:0; width:1.5rem; height:1px; background:var(--compass-blue); opacity:.7; }
+.compass-site .section-heading h2,
+.compass-site .intro-grid h2,
+.compass-site .age-copy h2,
+.compass-site .safety-section h2 { text-wrap:balance; }
+.compass-site .section-heading h2::after,
+.compass-site .intro-grid h2::after { content:""; display:block; width:3.5rem; height:4px; margin-top:1.1rem; background:var(--compass-sun); transform:skewX(-22deg); }
+.compass-site .program-grid { gap:1.5rem; align-items:stretch; }
+.compass-site .program-card { overflow:hidden; isolation:isolate; }
+.compass-site .program-card::before { content:attr(data-number); position:absolute; right:-.25rem; top:-1.25rem; z-index:-1; color:rgba(24,38,61,.08); font:800 8rem/.9 var(--font-display); letter-spacing:-.1em; }
+.compass-site .program-card:nth-child(2) { transform:translateY(1.5rem); }
+.compass-site .program-card:nth-child(2):hover { transform:translateY(1.1rem); }
+.compass-site .program-card:nth-child(3) { transform:translateY(-.75rem); }
+.compass-site .program-card:nth-child(3):hover { transform:translateY(-1.1rem); }
+.compass-site .team-card:nth-child(3n+2) { background:#f7f9fc; }
+.compass-site .team-card:nth-child(3n+3) { background:#fffaf0; }
+.compass-site .post-row { position:relative; }
+.compass-site .post-row::after { content:"↗"; position:absolute; right:1.2rem; top:1.1rem; color:var(--compass-blue); font-size:1.1rem; opacity:.7; transition:transform .2s ease; }
+.compass-site .post-row:hover::after { transform:translate(3px,-3px); }
+.compass-site .doors .door:nth-child(2) { transform:translateY(1.25rem); }
+.compass-site .doors .door:nth-child(2):hover { transform:translateY(.9rem); }
+.compass-site .faq details summary { font-weight:700; }
+.compass-site .faq details summary::marker { color:var(--compass-blue); }
+@media (max-width:900px) {
+  .compass-site .section > .container::before { left:0; top:-1.2rem; width:2rem; }
+  .compass-site .program-card:nth-child(2), .compass-site .program-card:nth-child(3), .compass-site .doors .door:nth-child(2) { transform:none; }
+  .compass-site .program-card:nth-child(2):hover, .compass-site .program-card:nth-child(3):hover, .compass-site .doors .door:nth-child(2):hover { transform:translateY(-3px); }
+}
