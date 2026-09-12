@@ -2014,6 +2014,31 @@ section[id] { scroll-margin-top: 5.5rem; }
 .compass-site .section-heading h2::after, .compass-site .intro-grid h2::after { width:2.5rem; height:3px; margin-top:.9rem; }
 @media (max-width:900px) { .compass-site .compass-hero { min-height:0; } }
 
+/* Inner-page identities: same Compass system, different point of view. */
+.compass-site:not(:has(.compass-hero)) .page-hero { border-bottom:0; }
+.page-about .page-hero { background:#eaf0ff; }
+.page-how .page-hero { background:#eaf7f1; }
+.page-resources .page-hero { background:#fff5dd; }
+.page-involved .page-hero { background:#eee9ff; }
+.page-contact .page-hero { background:#e8f4fb; }
+.page-safety .page-hero { background:#f9e9e5; }
+.page-privacy .page-hero { background:#f0f1f3; }
+.page-about .page-hero-inner::before { border-color:#9cb6ff; }
+.page-how .page-hero-inner::before { border-color:#8bc9ac; }
+.page-resources .page-hero-inner::before { border-color:#e4bd62; }
+.page-involved .page-hero-inner::before { border-color:#b0a0ed; }
+.page-contact .page-hero-inner::before { border-color:#8bc4e4; }
+.page-safety .page-hero-inner::before { border-color:#e2a092; }
+.page-privacy .page-hero-inner::before { border-color:#a8afb9; }
+.compass-site:not(:has(.compass-hero)) .page-hero h1 { max-width:11ch; }
+.compass-site:not(:has(.compass-hero)) .section-heading { border-bottom:1px solid rgba(24,38,61,.14); padding-bottom:1.4rem; }
+.page-resources .post-list { border-top:2px solid var(--compass-ink); padding-top:1rem; }
+.page-how .trail li > div { border-left-width:6px; }
+.page-involved .doors .door-hot { outline:2px solid rgba(24,38,61,.12); outline-offset:5px; }
+.page-contact .form-card { background:#f8fbff; }
+.page-safety .band-ink { background:#202d46; }
+@media (max-width:700px) { .compass-site:not(:has(.compass-hero)) .page-hero h1 { max-width:13ch; } }
+
 /* Authored editorial layer: a little irregularity keeps Compass from feeling like a template. */
 .compass-site .section > .container { position:relative; }
 .compass-site main > .section:not(.band-ink):not(.safety-section) { background-image:linear-gradient(90deg, transparent calc(50% - .5px), rgba(24,38,61,.035) 50%, transparent calc(50% + .5px)); }
