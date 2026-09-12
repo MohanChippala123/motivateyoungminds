@@ -14,7 +14,7 @@
   --red-light: #ff9d8a;
   --shadow-soft: 0 18px 42px rgba(13, 23, 40, 0.10);
   --shadow-deep: 0 28px 70px rgba(13, 23, 40, 0.18);
-  --font-display: "Syne", "Arial Black", sans-serif;
+  --font-display: "Bricolage Grotesque", "Arial Black", sans-serif;
   --font-body: "IBM Plex Sans", -apple-system, "Segoe UI", sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 }
@@ -1722,11 +1722,12 @@ section[id] { scroll-margin-top: 5.5rem; }
   --compass-sky: #dceeff;
   --compass-paper: #fbfaf7;
   --compass-muted: #66758d;
-  font-family: "DM Sans", var(--font-body);
+  font-family: var(--font-body);
   color: var(--compass-ink);
   background: var(--compass-paper);
 }
 .compass-site h1,.compass-site h2,.compass-site h3 { font-family:var(--font-display); letter-spacing:-.04em; }
+.compass-site h1 { font-weight:700; }
 .compass-site .site-header { background: rgba(251,250,247,.9); border-top: 0; border-bottom: 1px solid rgba(24,38,61,.1); backdrop-filter: blur(16px); }
 .compass-site .site-header .logo { color: var(--compass-ink); }
 .compass-site .header-inner { padding: 1.05rem 0; }
@@ -1991,6 +1992,7 @@ section[id] { scroll-margin-top: 5.5rem; }
 
 /* Authored editorial layer: a little irregularity keeps Compass from feeling like a template. */
 .compass-site .section > .container { position:relative; }
+.compass-site main > .section:not(.band-ink):not(.safety-section) { background-image:linear-gradient(90deg, transparent calc(50% - .5px), rgba(24,38,61,.035) 50%, transparent calc(50% + .5px)); }
 .compass-site .section > .container::before { content:""; position:absolute; left:-2.5rem; top:0; width:1.5rem; height:1px; background:var(--compass-blue); opacity:.7; }
 .compass-site .section-heading h2,
 .compass-site .intro-grid h2,
@@ -2010,6 +2012,8 @@ section[id] { scroll-margin-top: 5.5rem; }
 .compass-site .post-row { position:relative; }
 .compass-site .post-row::after { content:"↗"; position:absolute; right:1.2rem; top:1.1rem; color:var(--compass-blue); font-size:1.1rem; opacity:.7; transition:transform .2s ease; }
 .compass-site .post-row:hover::after { transform:translate(3px,-3px); }
+.compass-site .post-row:nth-child(odd) { border-radius:4px 14px 14px 4px; }
+.compass-site .post-row:nth-child(even) { border-radius:14px 4px 4px 14px; }
 .compass-site .doors .door:nth-child(2) { transform:translateY(1.25rem); }
 .compass-site .doors .door:nth-child(2):hover { transform:translateY(.9rem); }
 .compass-site .faq details summary { font-weight:700; }
