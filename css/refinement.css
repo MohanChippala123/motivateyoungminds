@@ -1,71 +1,359 @@
-/* Shared finishing system. Logo rules intentionally stay in styles.css. */
-.compass-site { --reading-ink:#223047; }
-.compass-site h1,.compass-site h2 { font-weight:600; font-stretch:normal; letter-spacing:-.025em; }
-.compass-site h3 { font-family:var(--font-body); font-weight:600; letter-spacing:-.02em; }
-.compass-site .section { padding-block:clamp(3.5rem,6vw,5.5rem); }
-.compass-site main > .section:not(.band-ink):not(.safety-section) { background-image:none; }
-.compass-site .page-hero::before,.compass-site .page-hero::after,
-.compass-site .page-hero-inner::before,.compass-site .page-hero-inner::after,
+/* Compass Teens — final visual system. The existing logo remains deliberately untouched. */
+:root {
+  --ct-paper: #fbfaf7;
+  --ct-paper-deep: #f0eee7;
+  --ct-ink: #18263d;
+  --ct-copy: #4f5d72;
+  --ct-rule: #d7d8d4;
+  --ct-blue: #4e6b9f;
+  --ct-blue-soft: #e9edf4;
+  --ct-gold: #b98a39;
+  --ct-green: #e9eee8;
+}
+
+html { background: var(--ct-paper); scroll-behavior: smooth; }
+body.compass-site { background: var(--ct-paper); color: var(--ct-ink); font-family: var(--font-body); }
+.compass-site h1, .compass-site h2, .compass-site h3 {
+  color: var(--ct-ink);
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+.compass-site h1 { font-size: clamp(3rem, 5.5vw, 5.5rem); line-height: .98; }
+.compass-site h2 { font-size: clamp(2.15rem, 3.6vw, 3.55rem); line-height: 1.04; }
+.compass-site h3 { font-size: 1.35rem; line-height: 1.16; }
+.compass-site p { color: var(--ct-copy); line-height: 1.68; }
+.compass-site .container { width: min(1120px, calc(100% - 3rem)); }
+.compass-site .section { padding: clamp(4rem, 7vw, 6.5rem) 0; }
+.compass-site main > .section:not(.band-ink):not(.safety-section),
+.compass-site .programs-section,
+.compass-site .age-section,
+.compass-site .team-section { background-image: none; }
+
+/* Header: useful, quiet, and consistent from page to page. */
+.compass-site .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(251, 250, 247, .97);
+  border: 0;
+  border-bottom: 1px solid var(--ct-rule);
+  box-shadow: none;
+  backdrop-filter: none;
+}
+.compass-site .site-header.header-scrolled { background: rgba(251, 250, 247, .99); box-shadow: 0 5px 18px rgba(24, 38, 61, .06); }
+.compass-site .header-inner { min-height: 72px; padding: .9rem 0; }
+.compass-site .site-nav a:not(.btn) { color: #56647a; font-size: .88rem; font-weight: 600; }
+.compass-site .site-nav a:not(.btn):hover,
+.compass-site .site-nav a.active:not(.btn) { color: var(--ct-ink); border-bottom-color: var(--ct-blue); }
+.compass-site .nav-pill,
+.compass-site .site-nav .btn {
+  background: var(--ct-ink) !important;
+  color: #fff !important;
+  border: 1px solid var(--ct-ink) !important;
+  border-radius: 2px !important;
+  box-shadow: none !important;
+  font-size: .78rem !important;
+  letter-spacing: .01em;
+  padding: .62rem .8rem !important;
+}
+.compass-site .nav-pill span { color: #fff; }
+
+/* Shared page lead. It makes inner pages read as one publication, not seven templates. */
+.compass-site .page-hero,
+.compass-site:not(:has(.compass-hero)) .page-hero {
+  min-height: 0;
+  padding: clamp(3.8rem, 7vw, 6.3rem) 0 clamp(3.25rem, 6vw, 5.25rem);
+  background: var(--ct-paper-deep);
+  border: 0;
+  border-bottom: 1px solid var(--ct-rule);
+  overflow: visible;
+}
+.compass-site .page-hero::before,
+.compass-site .page-hero::after,
+.compass-site .page-hero-inner::before,
+.compass-site .page-hero-inner::after,
 .compass-site .page-hero ~ .section > .container::after,
-.compass-site .section-heading h2::after,.compass-site .intro-grid h2::after,
-.compass-site .post-row::after,.compass-site .band-ink::after,.compass-site .site-footer::after { content:none; display:none; }
-.compass-site:not(:has(.compass-hero)) .page-hero { min-height:0; padding:4.5rem 0 4rem; background:#f1eee6; border-bottom:1px solid #d9d6ce; }
-.compass-site:not(:has(.compass-hero)) .page-hero-inner { max-width:1120px; padding:0; border:0; display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr); column-gap:5rem; align-items:end; }
-.compass-site .page-hero .label,.compass-site .page-hero .eyebrow { grid-column:1/-1; font-family:var(--font-body); color:#465a76; font-size:.75rem; margin:0 0 1.5rem; }
-.compass-site:not(:has(.compass-hero)) .page-hero h1 { max-width:16ch; font-size:clamp(2.7rem,4.7vw,4.8rem); line-height:1.06; margin:0; }
-.compass-site .page-hero p:not(.eyebrow) { margin:0; font-size:1.05rem; line-height:1.75; color:#48566c; padding-bottom:.3rem; }
-.compass-site .page-hero + .section { padding-top:3.5rem; }
-.compass-site .section-heading h2,.compass-site main > .section > .container > h2 { font-size:clamp(2rem,3.5vw,3.25rem); line-height:1.12; }
-.compass-site .intro-grid { gap:4rem; }
-.compass-site .intro-grid h2 { font-size:clamp(2rem,3.2vw,3rem); line-height:1.15; }
-.compass-site .program-card:nth-child(n),.compass-site .doors .door:nth-child(n) { transform:none; }
-.compass-site .motion-card,.compass-site .motion-card:hover { transform:none!important; box-shadow:none!important; }
-.compass-site .motion-card::after { display:none; }
-.compass-site .post-row:nth-child(n) { border-radius:0; background:transparent; box-shadow:none; border:0; border-bottom:1px solid #d5d8dd; margin:0; padding:2rem 0; min-height:0; }
-.compass-site .post-list { max-width:none; border-top:0; padding:0; }
-.compass-site .post-row { grid-template-columns:150px minmax(0,1fr); gap:2rem; }
-.compass-site .post-title,.compass-site .post-row:first-child .post-title { font-family:var(--font-body); font-size:1.3rem; line-height:1.35; font-weight:600; max-width:40rem; }
-.compass-site .post-blurb { max-width:44rem; margin:.6rem 0; line-height:1.65; }
-.compass-site .post-date { color:#566780; font-weight:500; }
-.compass-site .post-row:hover { transform:none; background:transparent; }
-.compass-site .dd { gap:2.5rem; margin-top:2rem; }
-.compass-site .dd-col { border:0; border-top:1px solid #60718b; background:none; border-radius:0; padding:1.5rem 0 0; }
-.compass-site .dd-col li { margin:1rem 0; }
-.compass-site .trail { max-width:none; }
-.compass-site .trail li > div { background:transparent; border:0; border-bottom:1px solid #d5d8dd; border-radius:0; padding:0 0 2rem; box-shadow:none; }
-.compass-site .trail li { padding-bottom:2rem; gap:2rem; }
-.compass-site .trail h3 { font-size:1.5rem; }
-.compass-site .trail p { max-width:48rem; }
-.compass-site .doors { gap:2rem; }
-.compass-site .doors .door:nth-child(n) { background:#fff; border:1px solid #cdd3dc; border-top:5px solid #344e77; outline:0; padding:2.25rem; border-radius:0; display:flex; flex-direction:column; }
-.compass-site .doors .door-hot { border-top-color:#ae7e2f!important; }
-.compass-site .doors .door .btn { align-self:flex-start; margin-top:auto!important; }
-.compass-site .doors .door ul { margin-bottom:2rem; }
-.compass-site .path-row { background:#ecefe9; padding:2rem; border:0; border-radius:0; }
-.compass-site .contact-layout { grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:5rem; align-items:start; }
-.compass-site .info-item:first-child { padding-top:0; }
-.compass-site .info-item h3 { font-size:1.15rem; }
-.compass-site .info-item p { font-size:1rem; overflow-wrap:anywhere; }
-.compass-site .form-card { background:#fff; border:1px solid #cdd3dc; border-top:5px solid #344e77; border-radius:0; padding:2.25rem; box-shadow:none; }
-.form-intro { margin-bottom:1.5rem; }
-.form-intro h2 { font-size:2.25rem; line-height:1.15; margin-bottom:.75rem; }
-.form-intro .eyebrow { margin-bottom:.75rem; }
-.compass-site .field { margin-bottom:1rem; }
-.compass-site .field input,.compass-site .field select,.compass-site .field textarea { min-height:48px; font:inherit; border:1px solid #aeb8c7; background:#fff; border-radius:3px; }
-.compass-site .field textarea { min-height:150px; resize:vertical; }
-.compass-site .faq details { border:0; border-bottom:1px solid #ccd3dd; border-radius:0; padding:1.25rem 0; background:none; box-shadow:none; }
-.compass-site .faq summary { padding-right:2rem; }
-.contact-note { margin-top:1.5rem; }
-.contact-note a { text-decoration:underline; text-underline-offset:4px; }
-.compass-site .btn { box-shadow:none; }
-.compass-site .band-ink .trio > div { border-radius:0; background:transparent; border:0; border-top:1px solid #738099; padding:1.5rem 0; }
-@media(max-width:800px) {
- .compass-site:not(:has(.compass-hero)) .page-hero-inner { grid-template-columns:1fr; gap:1.25rem; }
- .compass-site:not(:has(.compass-hero)) .page-hero { padding:3rem 0; }
- .compass-site .page-hero .label,.compass-site .page-hero .eyebrow { margin:0; }
- .compass-site .contact-layout { grid-template-columns:1fr; gap:2rem; }
- .compass-site .doors { grid-template-columns:1fr; }
- .compass-site .form-card,.compass-site .doors .door:nth-child(n) { padding:1.5rem; }
- .compass-site .post-row { grid-template-columns:1fr; gap:.75rem; }
- .compass-site .section-heading { flex-wrap:wrap; gap:1rem; }
+.compass-site .section-heading h2::after,
+.compass-site .intro-grid h2::after,
+.compass-site .post-row::after,
+.compass-site .band-ink::after,
+.compass-site .site-footer::after { content: none; display: none; }
+.compass-site:not(:has(.compass-hero)) .page-hero-inner {
+  max-width: 1120px;
+  padding: 0;
+  border: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(250px, .55fr);
+  column-gap: clamp(3rem, 9vw, 8rem);
+  row-gap: 1.5rem;
+  align-items: end;
+}
+.compass-site .page-hero .label,
+.compass-site .page-hero .eyebrow {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--ct-blue);
+  font-family: var(--font-body);
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+}
+.compass-site:not(:has(.compass-hero)) .page-hero h1 { max-width: 14ch; margin: 0; }
+.compass-site .page-hero p:not(.eyebrow) { max-width: 32rem; margin: 0 0 .25rem; padding: 0; font-size: 1.02rem; color: var(--ct-copy); }
+.compass-site .page-hero + .section { padding-top: clamp(3.8rem, 7vw, 6rem); }
+
+.compass-site .eyebrow,
+.compass-site .label,
+.compass-site .team-role,
+.compass-site .age-label,
+.compass-site .path-badge {
+  color: var(--ct-blue);
+  font-family: var(--font-body);
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+.compass-site .eyebrow { margin-bottom: 1rem; }
+.compass-site .eyebrow-dot { display: none; }
+
+/* Home page: a program brief, rather than an app-style hero. */
+.compass-site .compass-hero {
+  min-height: auto;
+  padding: clamp(4rem, 9vw, 7.5rem) 0 clamp(4rem, 7vw, 6.5rem);
+  background: var(--ct-paper);
+  border-bottom: 1px solid var(--ct-rule);
+}
+.compass-site .compass-hero-grid { grid-template-columns: minmax(0, 1.25fr) minmax(300px, .75fr); gap: clamp(3rem, 9vw, 8rem); align-items: end; }
+.compass-site .hero-copy h1 { max-width: 11ch; margin-bottom: 1.5rem; font-size: clamp(3.6rem, 6.5vw, 6.7rem); line-height: .93; }
+.compass-site .hero-copy h1 em { color: var(--ct-blue); font-style: italic; }
+.compass-site .hero-lede { max-width: 35rem; margin: 0 0 2rem; color: var(--ct-copy); font-size: 1.1rem; }
+.compass-site .hero-actions,
+.compass-site .cta-actions { gap: 1rem 1.25rem; }
+.compass-site .btn,
+.compass-site .btn-compass,
+.compass-site .btn-dark,
+.compass-site .btn-primary,
+.compass-site .btn-outline,
+.compass-site .btn-outline-light {
+  border-radius: 2px;
+  box-shadow: none;
+  font-family: var(--font-body);
+  font-weight: 600;
+  transition: background-color .18s ease, border-color .18s ease, color .18s ease;
+}
+.compass-site .btn:hover { transform: none; box-shadow: none; }
+.compass-site .btn-compass,
+.compass-site .btn-primary { background: var(--ct-ink); border-color: var(--ct-ink); color: #fff; }
+.compass-site .btn-compass:hover,
+.compass-site .btn-primary:hover { background: var(--ct-blue); border-color: var(--ct-blue); }
+.compass-site .btn-outline { background: transparent; border-color: var(--ct-ink); color: var(--ct-ink); }
+.compass-site .text-link,
+.compass-site .link-arrow { border: 0; color: var(--ct-ink); font-weight: 600; text-decoration: underline; text-decoration-color: var(--ct-gold); text-decoration-thickness: 1px; text-underline-offset: .32rem; }
+.compass-site .text-link span,
+.compass-site .link-arrow svg { color: var(--ct-blue); }
+.compass-site .hero-note { color: #617087; font-size: .76rem; }
+.compass-site .mini-lock { color: var(--ct-gold); }
+
+.compass-site .hero-docket {
+  padding: 1.6rem 0 0 1.75rem;
+  border-left: 1px solid var(--ct-ink);
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.compass-site .docket-label { margin: 0 0 1.35rem; color: var(--ct-blue); font-size: .7rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
+.compass-site .docket-title { margin: 0 0 1.5rem; color: var(--ct-ink); font-family: var(--font-display); font-size: clamp(2.2rem, 3.3vw, 3.25rem); line-height: .95; letter-spacing: -.035em; }
+.compass-site .docket-list { margin: 0; border-top: 1px solid var(--ct-rule); }
+.compass-site .docket-list div { display: grid; grid-template-columns: 5.25rem 1fr; gap: 1rem; padding: .8rem 0; border-bottom: 1px solid var(--ct-rule); }
+.compass-site .docket-list dt { color: #68748a; font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+.compass-site .docket-list dd { margin: 0; color: var(--ct-ink); font-size: .9rem; font-weight: 600; line-height: 1.35; }
+.compass-site .compass-visual { display: none; }
+.compass-site .trust-strip { background: var(--ct-green); border-bottom: 1px solid var(--ct-rule); padding: 1.1rem 0; }
+.compass-site .trust-inner { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; color: #33455d; font-size: .78rem; font-weight: 600; }
+.compass-site .trust-line { display: none; }
+
+/* Home content carries one rhythm: text, rules, and modest color. */
+.compass-site .intro-grid,
+.compass-site .age-grid,
+.compass-site .safety-grid { gap: clamp(3rem, 8vw, 7rem); }
+.compass-site .intro-grid h2,
+.compass-site .section-heading h2,
+.compass-site .age-copy h2,
+.compass-site .safety-section h2 { font-size: clamp(2.3rem, 4vw, 4.1rem); line-height: 1.02; }
+.compass-site .intro-grid p:not(.eyebrow),
+.compass-site .age-copy > p:not(.eyebrow),
+.compass-site .safety-grid p:not(.eyebrow) { color: var(--ct-copy); font-size: 1.05rem; }
+.compass-site .programs-section { background: var(--ct-paper-deep); border-top: 1px solid var(--ct-rule); border-bottom: 1px solid var(--ct-rule); }
+.compass-site .section-heading { margin-bottom: 2.6rem; padding: 0; border: 0; }
+.compass-site .section-index { color: #718097; font-size: .72rem; letter-spacing: .08em; }
+.compass-site .program-grid { gap: 0; border-top: 1px solid var(--ct-ink); }
+.compass-site .program-card,
+.compass-site .program-card:nth-child(n) {
+  min-height: 0;
+  padding: 1.65rem 1.5rem 1.75rem 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  border-right: 1px solid var(--ct-rule);
+  box-shadow: none;
+  transform: none;
+}
+.compass-site .program-card + .program-card { padding-left: 1.5rem; }
+.compass-site .program-card:last-child { border-right: 0; }
+.compass-site .program-card:hover { transform: none; box-shadow: none; }
+.compass-site .program-number { color: var(--ct-blue); font-size: .72rem; letter-spacing: .08em; }
+.compass-site .program-icon { display: none; }
+.compass-site .program-card h3 { margin: 2.75rem 0 .7rem; font-size: 1.65rem; }
+.compass-site .program-card p { max-width: 18rem; color: var(--ct-copy); }
+.compass-site .program-card a { margin-top: 1.3rem; color: var(--ct-ink); text-decoration: underline; text-decoration-color: var(--ct-gold); text-underline-offset: .3rem; }
+.compass-site .age-section { background: var(--ct-green); }
+.compass-site .age-card,
+.compass-site .mentor-card { padding: 1.45rem 0; background: transparent; border: 0; border-radius: 0; border-top: 1px solid #aebbb2; color: var(--ct-ink); transform: none; }
+.compass-site .age-card:last-child { border-bottom: 1px solid #aebbb2; }
+.compass-site .mentor-card .age-label { color: var(--ct-gold); }
+.compass-site .age-card h3,
+.compass-site .mentor-card h3 { color: var(--ct-ink); margin: .65rem 0 .45rem; font-size: 1.55rem; }
+.compass-site .age-card p,
+.compass-site .mentor-card p { color: var(--ct-copy); }
+.compass-site .team-section { background: var(--ct-paper); border-top: 1px solid var(--ct-rule); }
+.compass-site .team-grid { gap: 0; background: transparent; border: 0; border-top: 1px solid var(--ct-ink); }
+.compass-site .team-card { min-height: 0; padding: 1.45rem 1.25rem 1.8rem 0; background: transparent !important; border: 0; border-radius: 0; border-right: 1px solid var(--ct-rule); border-bottom: 1px solid var(--ct-rule); box-shadow: none; }
+.compass-site .team-card:nth-child(3n+2), .compass-site .team-card:nth-child(3n+3) { padding-left: 1.25rem; }
+.compass-site .team-card:nth-child(3n) { border-right: 0; }
+.compass-site .team-card h3 { margin: 2rem 0 .5rem; font-size: 1.45rem; }
+.compass-site .team-card p { color: var(--ct-copy); }
+.compass-site .team-note { max-width: 55rem; margin-top: 1.4rem; color: #607087; font-size: .88rem; }
+.compass-site .safety-section,
+.compass-site .band-ink { background: var(--ct-ink); color: #fff; }
+.compass-site .safety-section h2,
+.compass-site .band-ink h2,
+.compass-site .band-ink h3 { color: #fff; }
+.compass-site .safety-section p,
+.compass-site .band-ink p { color: #d3dbe7; }
+.compass-site .safety-section .eyebrow,
+.compass-site .band-ink .eyebrow,
+.compass-site .band-ink .label { color: #e8c272; }
+.compass-site .text-link.light { color: #fff; text-decoration-color: #e8c272; }
+.compass-site .cta-section { background: var(--ct-paper-deep); }
+.compass-site .cta-card { padding: 0; background: transparent; border-radius: 0; align-items: end; }
+
+/* Inner-page layouts. */
+.compass-site .dd { gap: clamp(2.5rem, 7vw, 6rem); margin-top: 2.4rem; }
+.compass-site .dd-col { padding: 1.25rem 0 0; background: transparent; border: 0; border-radius: 0; border-top: 1px solid #718097; }
+.compass-site .dd-col h3 { font-family: var(--font-body); font-size: 1.1rem; font-weight: 600; letter-spacing: -.02em; }
+.compass-site .dd-col ul { margin-top: 1.15rem; }
+.compass-site .dd-col li { margin: .85rem 0; color: #e0e6ee; }
+.compass-site .dd-do li::before { color: #e8c272; }
+.compass-site .dd-dont li::before { color: #ed9d91; }
+.compass-site .trail { max-width: 900px; padding: 0; }
+.compass-site .trail::before, .compass-site .rail-fill { display: none; }
+.compass-site .trail li { grid-template-columns: 3.5rem 1fr; gap: 1.5rem; padding: 0 0 2.2rem; }
+.compass-site .trail li > div { padding: .15rem 0 2.2rem; background: transparent; border: 0; border-radius: 0; border-bottom: 1px solid var(--ct-rule); box-shadow: none; }
+.compass-site .trail li:last-child > div { border-bottom: 0; }
+.compass-site .trail .tl-node { width: auto; height: auto; padding: .18rem 0 0; align-self: start; display: block; background: transparent; border: 0; border-radius: 0; box-shadow: none; color: var(--ct-blue); font-size: .72rem; font-weight: 700; text-align: left; }
+.compass-site .trail .tl-node.hit { background: transparent; color: var(--ct-gold); }
+.compass-site .trail h3 { margin: .4rem 0 .55rem; font-size: 1.7rem; }
+.compass-site .trail p { max-width: 44rem; color: var(--ct-copy); }
+.compass-site .band-ink .trio { gap: 2.5rem; margin-top: 2.5rem !important; }
+.compass-site .band-ink .trio > div { min-height: 0; padding: 1.2rem 0 0; background: transparent; border: 0; border-top: 1px solid #75839a; border-radius: 0; }
+.compass-site .band-ink .trio h3 { font-family: var(--font-body); font-size: 1.12rem; font-weight: 600; letter-spacing: -.02em; }
+
+.compass-site .doors { gap: 0; border-top: 1px solid var(--ct-ink); }
+.compass-site .doors .door:nth-child(n) { min-height: 0; padding: 1.65rem 1.7rem 1.75rem 0; background: transparent; border: 0; border-radius: 0; border-top: 0; border-right: 1px solid var(--ct-rule); box-shadow: none; outline: 0; transform: none; }
+.compass-site .doors .door + .door { padding-left: 1.7rem; border-right: 0; }
+.compass-site .doors .door-hot { border-top-color: transparent !important; }
+.compass-site .doors .door h3 { margin: 2rem 0 .55rem !important; font-size: 1.65rem !important; }
+.compass-site .doors .door p { color: var(--ct-copy); }
+.compass-site .doors .door ul { margin: 1.35rem 0 1.8rem; }
+.compass-site .doors .door .btn { margin-top: auto !important; }
+.compass-site .path-badge { display: inline-block; margin: 0 !important; padding: 0; border: 0; background: transparent; }
+.compass-site .path-row { margin-top: 2.5rem; padding: 1.6rem 0; background: transparent; border: 0; border-top: 1px solid var(--ct-rule); border-bottom: 1px solid var(--ct-rule); border-radius: 0; }
+.compass-site .path-row h3 { margin-bottom: .35rem; }
+.compass-site .tier { padding: 1rem 0; border-color: #718097; }
+.compass-site .band-ink .tier, .compass-site .band-ink .tier:last-of-type { border-color: #718097; }
+.compass-site .tier strong { color: #fff; font-family: var(--font-body); font-size: 1rem; }
+.compass-site .amounts { gap: .75rem; margin-top: 1.6rem; }
+.compass-site .band-ink .btn-primary { background: #fff; color: var(--ct-ink); border-color: #fff; }
+.compass-site .band-ink .btn-outline-light { background: transparent; color: #fff; border-color: #a9b6c8; }
+
+/* Resource room and contact: information first. */
+.compass-site .post-list { max-width: 900px; padding: 0; border-top: 1px solid var(--ct-ink); }
+.compass-site .post-row,
+.compass-site .post-row:nth-child(n) { grid-template-columns: 8.5rem minmax(0, 1fr); gap: 2rem; min-height: 0; margin: 0; padding: 1.75rem 0; background: transparent; border: 0; border-bottom: 1px solid var(--ct-rule); border-radius: 0; box-shadow: none; transform: none; }
+.compass-site .post-row:hover { background: transparent; box-shadow: none; transform: none; }
+.compass-site .post-date { color: var(--ct-blue); font-size: .76rem; font-weight: 700; }
+.compass-site .post-title, .compass-site .post-row:first-child .post-title { max-width: 39rem; color: var(--ct-ink); font-family: var(--font-display); font-size: 1.6rem; font-weight: 500; line-height: 1.12; letter-spacing: -.025em; }
+.compass-site .post-blurb { max-width: 43rem; margin: .55rem 0; color: var(--ct-copy); }
+.compass-site .post-meta { color: #6a778b; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
+.compass-site .tag-gold, .compass-site .tag-blue, .compass-site .tag-green { color: var(--ct-blue); }
+.compass-site .contact-layout { grid-template-columns: minmax(210px, .7fr) minmax(0, 1.15fr); gap: clamp(3rem, 9vw, 8rem); align-items: start; }
+.compass-site .info-item { padding: 1.3rem 0; border-bottom: 1px solid var(--ct-rule); }
+.compass-site .info-item:first-child { padding-top: 0; }
+.compass-site .info-item h3 { margin-bottom: .4rem; font-family: var(--font-body); font-size: 1rem; font-weight: 600; letter-spacing: -.01em; }
+.compass-site .info-item p { font-size: .95rem; overflow-wrap: anywhere; }
+.compass-site .form-card { padding: 2.2rem; background: #fff; border: 1px solid #cdd2d8; border-top: 3px solid var(--ct-ink); border-radius: 0; box-shadow: none; }
+.compass-site .form-intro { margin-bottom: 1.7rem; }
+.compass-site .form-intro h2 { margin-bottom: .45rem; font-size: clamp(2rem, 3vw, 2.7rem); }
+.compass-site .form-intro .eyebrow { margin-bottom: .85rem; }
+.compass-site .field { margin-bottom: 1.05rem; }
+.compass-site .field label { color: #425168; font-size: .8rem; font-weight: 600; }
+.compass-site .field input, .compass-site .field select, .compass-site .field textarea { min-height: 46px; border: 1px solid #aeb7c3; border-radius: 1px; background: #fff; color: var(--ct-ink); font: inherit; }
+.compass-site .field textarea { min-height: 140px; resize: vertical; }
+.compass-site .field input:focus, .compass-site .field select:focus, .compass-site .field textarea:focus { border-color: var(--ct-blue); outline: 2px solid rgba(78, 107, 159, .16); outline-offset: 1px; }
+.compass-site .form-success { color: #355f4a; }
+.compass-site .faq details { padding: 1.15rem 0; background: transparent; border: 0; border-bottom: 1px solid var(--ct-rule); border-radius: 0; box-shadow: none; }
+.compass-site .faq summary { color: var(--ct-ink); font-family: var(--font-body); font-weight: 600; }
+
+/* Footer and quiet interaction. */
+.compass-site .site-footer { padding: 3.5rem 0 1.4rem; background: var(--ct-ink); color: #dbe2ec; }
+.compass-site .footer-grid { gap: 3rem; }
+.compass-site .footer-blurb, .compass-site .footer-meta { color: #aebacd; }
+.compass-site .footer-label { color: #e8c272; }
+.compass-site .footer-bottom { border-top-color: rgba(255,255,255,.16); }
+.compass-site .motion-card, .compass-site .motion-card:hover { transform: none !important; box-shadow: none !important; }
+.compass-site .motion-card::after { display: none; }
+.js .compass-site .motion-block { opacity: 0; transform: translateY(10px); transition: opacity .45s ease, transform .45s ease; transition-delay: var(--motion-delay, 0ms); }
+.js .compass-site .motion-block.motion-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .compass-site .motion-block { opacity: 1; transform: none; transition: none; }
+}
+
+@media (max-width: 860px) {
+  .compass-site .header-inner { min-height: 64px; }
+  .compass-site .nav-toggle { margin-left: auto; color: var(--ct-ink); }
+  .compass-site .nav-toggle span { background: var(--ct-ink); }
+  .compass-site .site-nav.open { background: var(--ct-paper); border-bottom: 1px solid var(--ct-rule); box-shadow: 0 10px 18px rgba(24, 38, 61, .07); }
+  .compass-site .site-nav.open a:not(.btn) { color: var(--ct-ink); border-bottom-color: var(--ct-rule); }
+  .compass-site .site-nav.open .nav-cta { padding-top: .85rem; }
+  .compass-site:not(:has(.compass-hero)) .page-hero-inner,
+  .compass-site .compass-hero-grid,
+  .compass-site .contact-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+  .compass-site .page-hero .label, .compass-site .page-hero .eyebrow { margin-bottom: .2rem; }
+  .compass-site .page-hero p:not(.eyebrow) { max-width: 38rem; }
+  .compass-site .hero-docket { margin-top: 1.75rem; padding: 1.4rem 0 0; border-left: 0; border-top: 1px solid var(--ct-ink); }
+  .compass-site .trust-inner { grid-template-columns: 1fr; gap: .35rem; }
+  .compass-site .intro-grid, .compass-site .age-grid, .compass-site .safety-grid, .compass-site .split { gap: 2.5rem; }
+  .compass-site .program-grid, .compass-site .team-grid, .compass-site .doors { grid-template-columns: 1fr; }
+  .compass-site .program-card, .compass-site .program-card + .program-card,
+  .compass-site .team-card, .compass-site .team-card:nth-child(n),
+  .compass-site .doors .door:nth-child(n), .compass-site .doors .door + .door { padding: 1.35rem 0 1.55rem; border-right: 0; border-bottom: 1px solid var(--ct-rule); }
+  .compass-site .program-card h3, .compass-site .doors .door h3 { margin-top: 1.25rem !important; }
+  .compass-site .team-card h3 { margin-top: 1.1rem; }
+  .compass-site .post-row, .compass-site .post-row:nth-child(n) { grid-template-columns: 1fr; gap: .55rem; }
+  .compass-site .trail li { grid-template-columns: 2.4rem 1fr; gap: 1rem; }
+  .compass-site .form-card { padding: 1.5rem; }
+  .compass-site .cta-card { display: grid; gap: 1.75rem; }
+}
+
+@media (max-width: 540px) {
+  .compass-site .container { width: min(100% - 2rem, 1120px); }
+  .compass-site h1 { font-size: clamp(2.7rem, 14vw, 4rem); }
+  .compass-site .hero-copy h1 { font-size: clamp(3rem, 15vw, 4.25rem); }
+  .compass-site .docket-list div { grid-template-columns: 4.65rem 1fr; }
+  .compass-site .form-cols.cols-2 { grid-template-columns: 1fr; }
 }
