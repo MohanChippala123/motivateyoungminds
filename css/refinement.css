@@ -13,16 +13,17 @@
 
 html { background: var(--ct-paper); scroll-behavior: smooth; }
 body.compass-site { background: var(--ct-paper); color: var(--ct-ink); font-family: var(--font-body); }
+.compass-site { --font-display: "Familjen Grotesk", "Arial Narrow", sans-serif; }
 body.compass-site ::selection { background: #d9b968; color: var(--ct-ink); }
 .compass-site h1, .compass-site h2, .compass-site h3 {
   color: var(--ct-ink);
   font-family: var(--font-display);
-  font-weight: 500;
-  letter-spacing: -.035em;
+  font-weight: 600;
+  letter-spacing: -.045em;
   text-wrap: balance;
 }
-.compass-site h1 { font-size: clamp(3rem, 5.5vw, 5.5rem); line-height: .98; }
-.compass-site h2 { font-size: clamp(2.15rem, 3.6vw, 3.55rem); line-height: 1.04; }
+.compass-site h1 { font-size: clamp(2.8rem, 5.2vw, 5.1rem); line-height: .98; }
+.compass-site h2 { font-size: clamp(2.05rem, 3.4vw, 3.35rem); line-height: 1.05; }
 .compass-site h3 { font-size: 1.35rem; line-height: 1.16; }
 .compass-site p { color: var(--ct-copy); line-height: 1.68; }
 .compass-site .container { width: min(1120px, calc(100% - 3rem)); }
@@ -44,6 +45,7 @@ body.compass-site ::selection { background: #d9b968; color: var(--ct-ink); }
   backdrop-filter: none;
 }
 .compass-site .site-header.header-scrolled { background: rgba(251, 250, 247, .99); box-shadow: 0 5px 18px rgba(24, 38, 61, .06); }
+.compass-site .compass-logo { font-family: "Newsreader", Georgia, serif; }
 .compass-site .header-inner { min-height: 72px; padding: .9rem 0; }
 .compass-site .site-nav a:not(.btn) { color: #56647a; font-size: .88rem; font-weight: 600; }
 .compass-site .site-nav a:not(.btn):hover,
@@ -143,7 +145,7 @@ body.compass-site ::selection { background: #d9b968; color: var(--ct-ink); }
   border-bottom: 1px solid var(--ct-rule);
 }
 .compass-site .compass-hero-grid { grid-template-columns: minmax(0, 1.25fr) minmax(300px, .75fr); gap: clamp(3rem, 9vw, 8rem); align-items: end; }
-.compass-site .hero-copy h1 { max-width: 11ch; margin-bottom: 1.5rem; font-size: clamp(3.6rem, 6.5vw, 6.7rem); line-height: .93; }
+.compass-site .hero-copy h1 { max-width: 11ch; margin-bottom: 1.5rem; font-size: clamp(3.35rem, 6vw, 6rem); line-height: .95; }
 .compass-site .hero-copy h1 em { color: var(--ct-blue); font-style: italic; }
 .compass-site .hero-lede { max-width: 35rem; margin: 0 0 2rem; color: var(--ct-copy); font-size: 1.1rem; }
 .compass-site .hero-actions,
@@ -182,7 +184,7 @@ body.compass-site ::selection { background: #d9b968; color: var(--ct-ink); }
   justify-content: flex-end;
 }
 .compass-site .docket-label { margin: 0 0 1.35rem; color: var(--ct-blue); font-size: .7rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
-.compass-site .docket-title { margin: 0 0 1.5rem; color: var(--ct-ink); font-family: var(--font-display); font-size: clamp(2.2rem, 3.3vw, 3.25rem); line-height: .95; letter-spacing: -.035em; }
+.compass-site .docket-title { margin: 0 0 1.5rem; color: var(--ct-ink); font-family: var(--font-display); font-size: clamp(2.1rem, 3.1vw, 3rem); font-weight: 600; line-height: .98; letter-spacing: -.045em; }
 .compass-site .docket-list { margin: 0; border-top: 1px solid var(--ct-rule); }
 .compass-site .docket-list div { display: grid; grid-template-columns: 5.25rem 1fr; gap: 1rem; padding: .8rem 0; border-bottom: 1px solid var(--ct-rule); }
 .compass-site .docket-list dt { color: #68748a; font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
@@ -307,7 +309,7 @@ body.compass-site ::selection { background: #d9b968; color: var(--ct-ink); }
 .compass-site .post-row:hover { background: transparent; box-shadow: none; transform: none; }
 .compass-site .post-row:hover .post-title { color: var(--ct-blue); }
 .compass-site .post-date { color: var(--ct-blue); font-size: .76rem; font-weight: 700; }
-.compass-site .post-title, .compass-site .post-row:first-child .post-title { max-width: 39rem; color: var(--ct-ink); font-family: var(--font-display); font-size: 1.6rem; font-weight: 500; line-height: 1.12; letter-spacing: -.025em; }
+.compass-site .post-title, .compass-site .post-row:first-child .post-title { max-width: 39rem; color: var(--ct-ink); font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; line-height: 1.15; letter-spacing: -.035em; }
 .compass-site .post-blurb { max-width: 43rem; margin: .55rem 0; color: var(--ct-copy); }
 .compass-site .post-meta { color: #6a778b; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
 .compass-site .tag-gold, .compass-site .tag-blue, .compass-site .tag-green { color: var(--ct-blue); }
@@ -381,8 +383,8 @@ body.compass-site ::selection { background: #d9b968; color: var(--ct-ink); }
 
 @media (max-width: 540px) {
   .compass-site .container { width: min(100% - 2rem, 1120px); }
-  .compass-site h1 { font-size: clamp(2.7rem, 14vw, 4rem); }
-  .compass-site .hero-copy h1 { font-size: clamp(3rem, 15vw, 4.25rem); }
+  .compass-site h1 { font-size: clamp(2.55rem, 13vw, 3.8rem); }
+  .compass-site .hero-copy h1 { font-size: clamp(2.9rem, 14vw, 4rem); }
   .compass-site .docket-list div { grid-template-columns: 4.65rem 1fr; }
   .compass-site .form-cols.cols-2 { grid-template-columns: 1fr; }
 }
