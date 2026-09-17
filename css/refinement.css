@@ -1,0 +1,71 @@
+/* Shared finishing system. Logo rules intentionally stay in styles.css. */
+.compass-site { --reading-ink:#223047; }
+.compass-site h1,.compass-site h2 { font-weight:600; font-stretch:normal; letter-spacing:-.025em; }
+.compass-site h3 { font-family:var(--font-body); font-weight:600; letter-spacing:-.02em; }
+.compass-site .section { padding-block:clamp(3.5rem,6vw,5.5rem); }
+.compass-site main > .section:not(.band-ink):not(.safety-section) { background-image:none; }
+.compass-site .page-hero::before,.compass-site .page-hero::after,
+.compass-site .page-hero-inner::before,.compass-site .page-hero-inner::after,
+.compass-site .page-hero ~ .section > .container::after,
+.compass-site .section-heading h2::after,.compass-site .intro-grid h2::after,
+.compass-site .post-row::after,.compass-site .band-ink::after,.compass-site .site-footer::after { content:none; display:none; }
+.compass-site:not(:has(.compass-hero)) .page-hero { min-height:0; padding:4.5rem 0 4rem; background:#f1eee6; border-bottom:1px solid #d9d6ce; }
+.compass-site:not(:has(.compass-hero)) .page-hero-inner { max-width:1120px; padding:0; border:0; display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr); column-gap:5rem; align-items:end; }
+.compass-site .page-hero .label,.compass-site .page-hero .eyebrow { grid-column:1/-1; font-family:var(--font-body); color:#465a76; font-size:.75rem; margin:0 0 1.5rem; }
+.compass-site:not(:has(.compass-hero)) .page-hero h1 { max-width:16ch; font-size:clamp(2.7rem,4.7vw,4.8rem); line-height:1.06; margin:0; }
+.compass-site .page-hero p:not(.eyebrow) { margin:0; font-size:1.05rem; line-height:1.75; color:#48566c; padding-bottom:.3rem; }
+.compass-site .page-hero + .section { padding-top:3.5rem; }
+.compass-site .section-heading h2,.compass-site main > .section > .container > h2 { font-size:clamp(2rem,3.5vw,3.25rem); line-height:1.12; }
+.compass-site .intro-grid { gap:4rem; }
+.compass-site .intro-grid h2 { font-size:clamp(2rem,3.2vw,3rem); line-height:1.15; }
+.compass-site .program-card:nth-child(n),.compass-site .doors .door:nth-child(n) { transform:none; }
+.compass-site .motion-card,.compass-site .motion-card:hover { transform:none!important; box-shadow:none!important; }
+.compass-site .motion-card::after { display:none; }
+.compass-site .post-row:nth-child(n) { border-radius:0; background:transparent; box-shadow:none; border:0; border-bottom:1px solid #d5d8dd; margin:0; padding:2rem 0; min-height:0; }
+.compass-site .post-list { max-width:none; border-top:0; padding:0; }
+.compass-site .post-row { grid-template-columns:150px minmax(0,1fr); gap:2rem; }
+.compass-site .post-title,.compass-site .post-row:first-child .post-title { font-family:var(--font-body); font-size:1.3rem; line-height:1.35; font-weight:600; max-width:40rem; }
+.compass-site .post-blurb { max-width:44rem; margin:.6rem 0; line-height:1.65; }
+.compass-site .post-date { color:#566780; font-weight:500; }
+.compass-site .post-row:hover { transform:none; background:transparent; }
+.compass-site .dd { gap:2.5rem; margin-top:2rem; }
+.compass-site .dd-col { border:0; border-top:1px solid #60718b; background:none; border-radius:0; padding:1.5rem 0 0; }
+.compass-site .dd-col li { margin:1rem 0; }
+.compass-site .trail { max-width:none; }
+.compass-site .trail li > div { background:transparent; border:0; border-bottom:1px solid #d5d8dd; border-radius:0; padding:0 0 2rem; box-shadow:none; }
+.compass-site .trail li { padding-bottom:2rem; gap:2rem; }
+.compass-site .trail h3 { font-size:1.5rem; }
+.compass-site .trail p { max-width:48rem; }
+.compass-site .doors { gap:2rem; }
+.compass-site .doors .door:nth-child(n) { background:#fff; border:1px solid #cdd3dc; border-top:5px solid #344e77; outline:0; padding:2.25rem; border-radius:0; display:flex; flex-direction:column; }
+.compass-site .doors .door-hot { border-top-color:#ae7e2f!important; }
+.compass-site .doors .door .btn { align-self:flex-start; margin-top:auto!important; }
+.compass-site .doors .door ul { margin-bottom:2rem; }
+.compass-site .path-row { background:#ecefe9; padding:2rem; border:0; border-radius:0; }
+.compass-site .contact-layout { grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:5rem; align-items:start; }
+.compass-site .info-item:first-child { padding-top:0; }
+.compass-site .info-item h3 { font-size:1.15rem; }
+.compass-site .info-item p { font-size:1rem; overflow-wrap:anywhere; }
+.compass-site .form-card { background:#fff; border:1px solid #cdd3dc; border-top:5px solid #344e77; border-radius:0; padding:2.25rem; box-shadow:none; }
+.form-intro { margin-bottom:1.5rem; }
+.form-intro h2 { font-size:2.25rem; line-height:1.15; margin-bottom:.75rem; }
+.form-intro .eyebrow { margin-bottom:.75rem; }
+.compass-site .field { margin-bottom:1rem; }
+.compass-site .field input,.compass-site .field select,.compass-site .field textarea { min-height:48px; font:inherit; border:1px solid #aeb8c7; background:#fff; border-radius:3px; }
+.compass-site .field textarea { min-height:150px; resize:vertical; }
+.compass-site .faq details { border:0; border-bottom:1px solid #ccd3dd; border-radius:0; padding:1.25rem 0; background:none; box-shadow:none; }
+.compass-site .faq summary { padding-right:2rem; }
+.contact-note { margin-top:1.5rem; }
+.contact-note a { text-decoration:underline; text-underline-offset:4px; }
+.compass-site .btn { box-shadow:none; }
+.compass-site .band-ink .trio > div { border-radius:0; background:transparent; border:0; border-top:1px solid #738099; padding:1.5rem 0; }
+@media(max-width:800px) {
+ .compass-site:not(:has(.compass-hero)) .page-hero-inner { grid-template-columns:1fr; gap:1.25rem; }
+ .compass-site:not(:has(.compass-hero)) .page-hero { padding:3rem 0; }
+ .compass-site .page-hero .label,.compass-site .page-hero .eyebrow { margin:0; }
+ .compass-site .contact-layout { grid-template-columns:1fr; gap:2rem; }
+ .compass-site .doors { grid-template-columns:1fr; }
+ .compass-site .form-card,.compass-site .doors .door:nth-child(n) { padding:1.5rem; }
+ .compass-site .post-row { grid-template-columns:1fr; gap:.75rem; }
+ .compass-site .section-heading { flex-wrap:wrap; gap:1rem; }
+}

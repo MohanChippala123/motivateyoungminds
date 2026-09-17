@@ -47,11 +47,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const role = document.querySelector("#role");
   const type = new URLSearchParams(window.location.search).get("type");
-  if (role && type && role.querySelector('option[value="' + type + '"]')) role.value = type;
+  if (role && type && Array.from(role.options).some(option => option.value === type)) role.value = type;
 
   document.querySelectorAll(".js-form").forEach(function (form) {
     form.addEventListener("submit", function (event) {
       event.preventDefault();
+      if (form.hasAttribute("data-contact-draft")) {
+        if (!form.reportValidity()) return;
+        const data = new FormData(form);
+        const body = "Name: " + data.get("name") + "\nReply email: " + data.get("email") + "\nRole: " + data.get("role") + "\n\n" + data.get("message");
+        window.location.href = "mailto:mohan0512vittal@gmail.com?subject=" + encodeURIComponent("Compass Teens enquiry") + "&body=" + encodeURIComponent(body);
+        form.querySelector(".form-success").classList.add("show");
+        return;
+      }
       if (form.dataset.submitting === "true") return;
       if (!form.checkValidity()) {
         form.reportValidity();

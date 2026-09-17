@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css?v=20260916"><link rel="stylesheet" href="css/refinement.css?v=20260916">
 </head>
 <body class="compass-site page-contact">
 
@@ -57,7 +57,7 @@
       <div>
         <div class="info-item">
           <h3>Email</h3>
-          <p><a href="mailto:mohan0512vittal@gmail.com" style="color:var(--gold-deep); border-bottom:1px solid var(--gold); text-decoration:none;">mohan0512vittal@gmail.com</a><br>Best for anything detailed or sensitive.</p>
+          <p><a href="mailto:mohan0512vittal@gmail.com" style="color:var(--gold-deep); border-bottom:1px solid var(--gold); text-decoration:none;">mohan0512vittal@gmail.com</a><br>For questions about joining or helping the pilot. Please avoid sending sensitive personal details.</p>
         </div>
         <div class="info-item">
           <h3>Socials</h3>
@@ -76,7 +76,8 @@
         </div>
       </div>
 
-      <form class="js-form form-card form-grid" novalidate>
+      <form class="js-form form-card form-grid" data-contact-draft novalidate>
+        <div class="form-intro"><p class="eyebrow">Start a conversation</p><h2>What brings you here?</h2><p>This opens an email draft for you to review and send.</p></div>
         <div class="field">
           <label for="name">Your name</label>
           <input id="name" name="name" type="text" placeholder="First name is fine" required>
@@ -107,10 +108,10 @@
           <label for="message">What's on your mind?</label>
           <textarea id="message" name="message" placeholder="Tell us what you need, what you're navigating, or how you'd like to help…" required></textarea>
         </div>
-        <button type="submit" class="btn btn-primary btn-lg">Send message
+        <button type="submit" class="btn btn-primary btn-lg">Open email draft
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </button>
-        <p class="form-success"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; margin-right:6px;"><path class="ck" d="M4 12.5l5 5L20 7"/></svg>Got it — we'll reply within a couple of days.</p>
+        <p class="form-success" role="status">Your email draft is ready. Review and send it in your email app. Your message has not been sent yet.</p>
       </form>
     </div>
   </section>
