@@ -13,6 +13,7 @@
 
 html { background: var(--ct-paper); scroll-behavior: smooth; }
 body.compass-site { background: var(--ct-paper); color: var(--ct-ink); font-family: var(--font-body); }
+body.compass-site ::selection { background: #d9b968; color: var(--ct-ink); }
 .compass-site h1, .compass-site h2, .compass-site h3 {
   color: var(--ct-ink);
   font-family: var(--font-display);
@@ -103,6 +104,21 @@ body.compass-site { background: var(--ct-paper); color: var(--ct-ink); font-fami
 .compass-site:not(:has(.compass-hero)) .page-hero h1 { max-width: 14ch; margin: 0; }
 .compass-site .page-hero p:not(.eyebrow) { max-width: 32rem; margin: 0 0 .25rem; padding: 0; font-size: 1.02rem; color: var(--ct-copy); }
 .compass-site .page-hero + .section { padding-top: clamp(3.8rem, 7vw, 6rem); }
+
+/* A small page palette gives each section a memory without turning it into a rainbow. */
+.compass-site.page-about .page-hero { background: #f0eee7; }
+.compass-site.page-how .page-hero { background: #26364f; border-bottom-color: #26364f; }
+.compass-site.page-how .page-hero h1 { color: #fff; }
+.compass-site.page-how .page-hero p:not(.eyebrow) { color: #d5dce7; }
+.compass-site.page-how .page-hero .label { color: #e9c979; }
+.compass-site.page-resources .page-hero { background: #e8edf4; }
+.compass-site.page-involved .page-hero { background: #e7ede6; }
+.compass-site.page-contact .page-hero { background: #f2e9df; }
+.compass-site.page-safety .page-hero { background: #26364f; border-bottom-color: #26364f; }
+.compass-site.page-safety .page-hero h1 { color: #fff; }
+.compass-site.page-safety .page-hero p:not(.eyebrow) { color: #d5dce7; }
+.compass-site.page-safety .page-hero .label { color: #e9c979; }
+.compass-site.page-privacy .page-hero { background: #eceeef; }
 
 .compass-site .eyebrow,
 .compass-site .label,
@@ -205,7 +221,9 @@ body.compass-site { background: var(--ct-paper); color: var(--ct-ink); font-fami
 .compass-site .program-card + .program-card { padding-left: 1.5rem; }
 .compass-site .program-card:last-child { border-right: 0; }
 .compass-site .program-card:hover { transform: none; box-shadow: none; }
-.compass-site .program-number { color: var(--ct-blue); font-size: .72rem; letter-spacing: .08em; }
+.compass-site .program-number { width: 2.25rem; height: 2.25rem; display: grid; place-items: center; background: var(--ct-blue); color: #fff; font-size: .7rem; letter-spacing: .06em; }
+.compass-site .program-card:nth-child(2) .program-number { background: var(--ct-gold); color: var(--ct-ink); }
+.compass-site .program-card:nth-child(3) .program-number { background: var(--ct-ink); }
 .compass-site .program-icon { display: none; }
 .compass-site .program-card h3 { margin: 2.75rem 0 .7rem; font-size: 1.65rem; }
 .compass-site .program-card p { max-width: 18rem; color: var(--ct-copy); }
@@ -226,6 +244,8 @@ body.compass-site { background: var(--ct-paper); color: var(--ct-ink); font-fami
 .compass-site .team-card:nth-child(3n) { border-right: 0; }
 .compass-site .team-card h3 { margin: 2rem 0 .5rem; font-size: 1.45rem; }
 .compass-site .team-card p { color: var(--ct-copy); }
+.compass-site .team-card { transition: background-color .18s ease; }
+.compass-site .team-card:hover { background: #f2f0ea !important; transform: none; box-shadow: none; }
 .compass-site .team-note { max-width: 55rem; margin-top: 1.4rem; color: #607087; font-size: .88rem; }
 .compass-site .safety-section,
 .compass-site .band-ink { background: var(--ct-ink); color: #fff; }
@@ -285,6 +305,7 @@ body.compass-site { background: var(--ct-paper); color: var(--ct-ink); font-fami
 .compass-site .post-row,
 .compass-site .post-row:nth-child(n) { grid-template-columns: 8.5rem minmax(0, 1fr); gap: 2rem; min-height: 0; margin: 0; padding: 1.75rem 0; background: transparent; border: 0; border-bottom: 1px solid var(--ct-rule); border-radius: 0; box-shadow: none; transform: none; }
 .compass-site .post-row:hover { background: transparent; box-shadow: none; transform: none; }
+.compass-site .post-row:hover .post-title { color: var(--ct-blue); }
 .compass-site .post-date { color: var(--ct-blue); font-size: .76rem; font-weight: 700; }
 .compass-site .post-title, .compass-site .post-row:first-child .post-title { max-width: 39rem; color: var(--ct-ink); font-family: var(--font-display); font-size: 1.6rem; font-weight: 500; line-height: 1.12; letter-spacing: -.025em; }
 .compass-site .post-blurb { max-width: 43rem; margin: .55rem 0; color: var(--ct-copy); }
@@ -310,10 +331,18 @@ body.compass-site { background: var(--ct-paper); color: var(--ct-ink); font-fami
 
 /* Footer and quiet interaction. */
 .compass-site .site-footer { padding: 3.5rem 0 1.4rem; background: var(--ct-ink); color: #dbe2ec; }
+.compass-site .site-footer .compass-logo { color: #fff; }
+.compass-site .site-footer .compass-logo small { color: #9fb6dc; }
 .compass-site .footer-grid { gap: 3rem; }
 .compass-site .footer-blurb, .compass-site .footer-meta { color: #aebacd; }
 .compass-site .footer-label { color: #e8c272; }
 .compass-site .footer-bottom { border-top-color: rgba(255,255,255,.16); }
+.compass-site .compass-footer .compass-mark,
+.compass-site .site-footer .compass-mark { border-color: #fff; }
+.compass-site .compass-footer .compass-mark::before,
+.compass-site .compass-footer .compass-mark::after,
+.compass-site .site-footer .compass-mark::before,
+.compass-site .site-footer .compass-mark::after { background: #fff; }
 .compass-site .motion-card, .compass-site .motion-card:hover { transform: none !important; box-shadow: none !important; }
 .compass-site .motion-card::after { display: none; }
 .js .compass-site .motion-block { opacity: 0; transform: translateY(10px); transition: opacity .45s ease, transform .45s ease; transition-delay: var(--motion-delay, 0ms); }
